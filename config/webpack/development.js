@@ -4,6 +4,7 @@ const merge = require('webpack-merge');
 const baseConfig = require('./base.js');
 const PATHS = require('../paths.js');
 const path = require('path');
+const WebpackBrowserPlugin = require('webpack-browser-plugin');
 
 module.exports = merge(baseConfig, {
 
@@ -16,6 +17,13 @@ module.exports = merge(baseConfig, {
     errorDetails: true
   },
 
-  devtool: 'source-map'
+  devtool: 'source-map',
+
+  plugins: [
+    new WebpackBrowserPlugin({
+      port: 3000,
+      url: 'http://localhost'
+    })
+  ]
 
 });

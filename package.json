@@ -38,6 +38,7 @@
     "style-loader": "^0.18.2",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.0.0",
+    "webpack-browser-plugin": "^1.0.20",
     "webpack-dev-server": "^2.5.0",
     "webpack-merge": "^4.1.0"
   },
