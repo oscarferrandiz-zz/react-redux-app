@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/eslint ./src --ext .js --ext .jsx",
     "start": "NODE_ENV=development node_modules/.bin/webpack-dev-server --config ./config/webpack/development.js --progress --port 3000",
-    "build": "NODE_ENV=development node_modules/.bin/webpack --config ./config/webpack/production.js --progress"
+    "build": "NODE_ENV=production node_modules/.bin/webpack --config ./config/webpack/production.js --progress"
   },
   "keywords": [
     "react",
