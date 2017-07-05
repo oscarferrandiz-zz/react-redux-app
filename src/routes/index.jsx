@@ -7,7 +7,7 @@ import App from 'components/app/App';
 // Pages
 import Home from 'components/pages/Home';
 
-const configureRoutes = () => (
+const getRoutes = () => (
   <div>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
@@ -15,4 +15,4 @@ const configureRoutes = () => (
   </div>
 );
 
-export default configureRoutes;
+export default getRoutes;

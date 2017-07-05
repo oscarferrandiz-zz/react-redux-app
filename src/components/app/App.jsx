@@ -9,7 +9,11 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>{this.props.children}</div>
+      <main role="main" className="main">
+        <div className="app-wrapper">
+          {this.props.children}
+        </div>
+      </main>
     );
   }
 }
