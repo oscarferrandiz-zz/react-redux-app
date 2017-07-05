@@ -42,14 +42,17 @@ module.exports = {
   },
 
   plugins: [
+
     // Injects output script on index.html
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       inject: 'body',
       filename: 'index.html'
     }),
+
     // Injects CSS stylesheet
     new ExtractTextPlugin({ filename: '[name].css' }),
+
     // Creates global variables
     new webpack.DefinePlugin({
       'process.env': {
