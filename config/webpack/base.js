@@ -5,6 +5,14 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PATHS = require('../paths.js');
+const config = require('dotenv').config();
+
+const envConfig = {};
+
+// Stringify dotenv values
+Object.keys(config.parsed).forEach((k) => {
+  envConfig[k] = JSON.stringify(config.parsed[k]);
+});
 
 module.exports = {
 
@@ -45,7 +53,7 @@ module.exports = {
 
     // Injects output script on index.html
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: path.join(PATHS.src, 'index.html'),
       inject: 'body',
       filename: 'index.html'
     }),
@@ -57,7 +65,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-      }
+      },
+      ENV: envConfig
     })
   ]
 };

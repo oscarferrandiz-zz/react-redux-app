@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "dotenv": "^4.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
