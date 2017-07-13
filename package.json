@@ -43,6 +43,7 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "classnames": "^2.2.5",
     "dotenv": "^4.0.0",
     "prop-types": "^15.5.10",
@@ -52,6 +53,7 @@
     "react-router": "^3.0.0",
     "react-router-redux": "^4.0.8",
     "redux": "^3.7.1",
+    "redux-saga": "^0.15.4",
     "redux-thunk": "^2.2.0",
     "reset-css": "^2.2.0"
   }
