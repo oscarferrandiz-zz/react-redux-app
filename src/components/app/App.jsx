@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { getDatasets } from 'modules/datasets';
+import { connect } from 'react-redux';
 
-export default class App extends React.Component {
+class App extends React.Component {
 
-  conponentDidMount() {
+  componentDidMount() {
     // Fetch data
+    this.props.getDatasets();
   }
 
   render() {
@@ -19,5 +22,12 @@ export default class App extends React.Component {
 }
 
 App.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
+  getDatasets: PropTypes.func.isRequired
 };
+
+const mapDispatchToProps = {
+  getDatasets
+};
+
+export default connect(null, mapDispatchToProps)(App);

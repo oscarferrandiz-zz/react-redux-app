@@ -1,13 +1,27 @@
-import { delay } from 'redux-saga';
-import { call, fork } from 'redux-saga/effects';
+import { takeLatest, put, call } from 'redux-saga/effects';
 
-function* standBy() {
-  yield call(delay, 1000);
-  console.log('We are on stand-by!');
+/* Rest api comunication */
+import { getDatasets } from 'utils/api';
+
+/* Modules */
+import { setDatasets, setLoading, setError, GET } from 'modules/datasets';
+
+function* loadDatasets() {
+  yield put(setLoading(true));
+
+  try {
+    const response = yield call(getDatasets);
+    const data = yield response.json();
+    yield put(setDatasets(data.data));
+  } catch (error) {
+    yield put(setError(error.message));
+  }
+
+  yield put(setLoading(false));
 }
 
 export default function* rootSaga() {
   yield [
-    fork(standBy)
+    takeLatest(GET, loadDatasets)
   ];
 }
