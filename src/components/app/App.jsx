@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchDatasets } from 'modules/datasets';
+import { fetchDatasets } from 'redux-modules/datasets/actions';
 import { connect } from 'react-redux';
 
 class App extends React.Component {

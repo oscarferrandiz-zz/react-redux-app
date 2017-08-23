@@ -8,11 +8,6 @@ const WebpackBrowserPlugin = require('webpack-browser-plugin');
 
 module.exports = merge(baseConfig, {
 
-  output: {
-    filename: '[name].js',
-    path: path.resolve(PATHS.root, PATHS.dev)
-  },
-
   stats: {
     errorDetails: true
   },
