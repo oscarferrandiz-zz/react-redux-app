@@ -4,11 +4,12 @@ import {
   SET_ERROR
 } from './constants';
 import { getDatasets } from 'utils/api';
+import datasetNormalizer from './schema';
 
 /* Action creators */
 const setDatasets = datasets => ({
   type: SET,
-  payload: datasets
+  payload: datasetNormalizer(datasets)
 });
 
 const setLoading = loading => ({

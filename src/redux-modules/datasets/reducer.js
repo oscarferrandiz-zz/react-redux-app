@@ -7,7 +7,6 @@ import { createReducer } from 'utils/redux';
 
 /* Initial state */
 const INITIAL_STATE = {
-  list: [],
   error: null,
   loading: false
 };
@@ -17,7 +16,7 @@ export default createReducer(INITIAL_STATE, {
   [SET](state, action) {
     return {
       ...state,
-      list: action.payload
+      ...action.payload
     };
   },
 
