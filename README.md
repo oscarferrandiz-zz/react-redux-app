@@ -7,7 +7,7 @@ Includes:
 - Redux
 - Redux-thunk
 - React-router 3
-- React-redux-router
+- React-router-redux
 - Sass styles
 - Webpack dev server
 - Eslint
