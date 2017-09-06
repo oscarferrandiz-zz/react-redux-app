@@ -26,8 +26,7 @@ const fetchDatasets = () => async (dispatch) => {
   dispatch(setLoading(true));
 
   try {
-    const response = await getDatasets();
-    const data = await response.json();
+    const data = await getDatasets();
     dispatch(setDatasets(data.data));
   } catch (error) {
     dispatch(setError(error.message));

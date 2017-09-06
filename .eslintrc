@@ -3,7 +3,8 @@
   "globals": {
     "window": true,
     "document": true,
-    "module": true
+    "module": true,
+    "fetch": true
   },
   "rules": {
     "space-before-function-paren": ["error", "never"],
