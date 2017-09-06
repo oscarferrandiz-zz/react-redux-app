@@ -4,19 +4,21 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const PATHS = require('../paths.js');
+const paths = require('../paths.js');
 const config = require('dotenv').config();
 
-const envConfig = {};
+// Resolve paths from process.cwd
+const resolve = dir => path.join(process.cwd(), dir);
 
 // Stringify dotenv values
-Object.keys(config.parsed).forEach((k) => {
-  envConfig[k] = JSON.stringify(config.parsed[k]);
-});
+const envConfig = Object.keys(config.parsed).reduce((acc, key) => {
+  acc[key] = JSON.stringify(config.parsed[key]);
+  return acc;
+}, {});
 
 module.exports = {
 
-  entry: './src/index.jsx',
+  entry: resolve(path.join(paths.SRC, 'index.jsx')),
 
   output: {
     publicPath: '/'
@@ -40,20 +42,22 @@ module.exports = {
     ]
   },
 
-  // Allows absolute imports from src directory and node_modules
+  // Allows absolute imports from src directory (@) and node_modules
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
     modules: [
-      path.join(PATHS.root, PATHS.src),
       'node_modules'
-    ]
+    ],
+    alias: {
+      '@': resolve(paths.SRC)
+    }
   },
 
   plugins: [
 
     // Injects output script on index.html
     new HtmlWebpackPlugin({
-      template: path.join(PATHS.src, 'index.html'),
+      template: resolve(path.join(paths.SRC, 'index.html')),
       inject: 'body',
       filename: 'index.html'
     }),
@@ -66,7 +70,7 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       },
-      ENV: envConfig
+      __env: envConfig
     })
   ]
 };

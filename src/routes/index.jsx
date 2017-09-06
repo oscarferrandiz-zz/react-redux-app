@@ -2,10 +2,10 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 // App
-import App from 'components/app/App';
+import App from '@/components/app/App';
 
 // Pages
-import Home from 'components/pages/Home';
+import Home from '@/components/pages/Home';
 
 const getRoutes = () => (
   <div>

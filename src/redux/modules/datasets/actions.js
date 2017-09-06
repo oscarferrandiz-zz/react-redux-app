@@ -3,7 +3,7 @@ import {
   SET_LOADING,
   SET_ERROR
 } from './constants';
-import { getDatasets } from 'utils/api';
+import { getDatasets } from '@/utils/api';
 
 /* Action creators */
 const setDatasets = datasets => ({

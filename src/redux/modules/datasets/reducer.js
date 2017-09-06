@@ -3,7 +3,7 @@ import {
   SET_LOADING,
   SET_ERROR
 } from './constants';
-import { createReducer } from 'utils/redux';
+import { createReducer } from '@/redux/utils';
 
 /* Initial state */
 const INITIAL_STATE = {

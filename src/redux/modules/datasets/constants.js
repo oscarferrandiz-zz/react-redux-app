@@ -1,4 +1,4 @@
-import actionPrefix from 'utils/prefix';
+import actionPrefix from '@/utils/prefix';
 
 const prefix = actionPrefix('DATASETS');
 

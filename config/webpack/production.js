@@ -4,13 +4,13 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const path = require('path');
 const baseConfig = require('./base.js');
-const PATHS = require('../paths.js');
+const paths = require('../paths.js');
 
 module.exports = merge(baseConfig, {
 
   output: {
     filename: '[name]-[hash].js',
-    path: path.resolve(PATHS.root, PATHS.dist)
+    path: path.resolve(process.cwd(), paths.DIST)
   },
 
   plugins: [

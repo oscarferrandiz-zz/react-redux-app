@@ -2,7 +2,6 @@
 
 const merge = require('webpack-merge');
 const baseConfig = require('./base.js');
-const PATHS = require('../paths.js');
 const path = require('path');
 const WebpackBrowserPlugin = require('webpack-browser-plugin');
 
