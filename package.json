@@ -54,6 +54,7 @@
     "react-router-redux": "^4.0.8",
     "redux": "^3.7.1",
     "redux-thunk": "^2.2.0",
-    "reset-css": "^2.2.0"
+    "reset-css": "^2.2.0",
+    "whatwg-fetch": "^2.0.3"
   }
 }
