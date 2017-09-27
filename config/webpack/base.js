@@ -36,8 +36,12 @@ module.exports = {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          loader: 'css-loader!sass-loader'
+          use: 'css-loader!sass-loader'
         })
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: ['file-loader']
       }
     ]
   },
@@ -70,7 +74,7 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       },
-      __env: envConfig
+      __ENV__: envConfig
     })
   ]
 };
