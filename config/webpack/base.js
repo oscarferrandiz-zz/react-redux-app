@@ -26,11 +26,15 @@ module.exports = {
         use: ['babel-loader']
       },
       {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader!sass-loader'
-        })
+        test: /\.styl$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: { modules: true }
+          },
+          'stylus-loader'
+        ]
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
@@ -41,7 +45,7 @@ module.exports = {
 
   // Allows absolute imports from src directory (@) and node_modules
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
+    extensions: ['.js', '.jsx', '.json', '.css', '.styl'],
     modules: [
       'node_modules'
     ],
@@ -58,9 +62,6 @@ module.exports = {
       inject: 'body',
       filename: 'index.html'
     }),
-
-    // Injects CSS stylesheet
-    new ExtractTextPlugin({ filename: '[name].css' }),
 
     // Loads variables from .env
     new Dotenv({

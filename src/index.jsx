@@ -15,9 +15,6 @@ import store from './redux/store';
 /* Routes */
 import getRoutes from './routes';
 
-/* Styles */
-import './styles/index.scss';
-
 const history = syncHistoryWithStore(browserHistory, store);
 
 render(
