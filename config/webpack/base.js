@@ -1,20 +1,13 @@
 /* Webpack base settings */
 
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const paths = require('../paths.js');
-const config = require('dotenv').config();
+const Dotenv = require('dotenv-webpack');
 
 // Resolve paths from process.cwd
 const resolve = dir => path.join(process.cwd(), dir);
-
-// Stringify dotenv values
-const envConfig = Object.keys(config.parsed).reduce((acc, key) => {
-  acc[key] = JSON.stringify(config.parsed[key]);
-  return acc;
-}, {});
 
 module.exports = {
 
@@ -69,12 +62,10 @@ module.exports = {
     // Injects CSS stylesheet
     new ExtractTextPlugin({ filename: '[name].css' }),
 
-    // Creates global variables
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-      },
-      __ENV__: envConfig
+    // Loads variables from .env
+    new Dotenv({
+      systemvars: true,
+      silent: true
     })
   ]
 };
